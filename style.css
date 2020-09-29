@@ -1,0 +1,127 @@
+body {
+  height: 100vh;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#calculator {
+  border: 1px solid grey;
+}
+
+#calculator-display {
+  height: 50px;
+  width: 90%;
+  border: 1px solid gray;
+  margin: 2rem auto;
+  text-align: right;
+  font-size: 1.3rem;
+}
+
+#calculator-operations {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 50px;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+#calculator-operations .calculator-operation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 2rem;
+  font-weight: 600;
+  border: 1px solid green;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+#calculator-operations .calculator-operation:hover {
+  background: lightblue;
+}
+
+#calculator-button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#calculator-button-container-numbers {
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+}
+
+#calculator-button-container-numbers .calculator-number-btn {
+  height: 50px;
+  width: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: 1px solid lightgray;
+  cursor: pointer;
+}
+
+#calculator-button-container-numbers .calculator-number-btn:hover {
+  background: #bababa;
+}
+
+#calculator-button-container-result {
+  font-size: 2rem;
+  font-weight: 600;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background: orange;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+}
+
+#calculator-button-container-result:hover {
+  background: #cc8400;
+}
+/*# sourceMappingURL=style.css.map */
