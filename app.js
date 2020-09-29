@@ -1,7 +1,4 @@
 class Calculator{
-  operation;
-  firstNumber = 0;
-  secondNumber = 0;
   isFirstNumberSet = false;
   calculationDone = false;
   display = document.getElementById("calculator-display");
@@ -15,87 +12,35 @@ class Calculator{
 
   addEventListeners() {
     this.resultBtn.addEventListener("click", () => this.displayResult());
-    this.operationBtns.forEach(btn => btn.addEventListener("click", (e) => this.setOperation(e.target.dataset.operation)))
-    this.numberBtns.forEach(btn => btn.addEventListener("click", (e) => this.setNumber(e.target.dataset.value)))
+    this.operationBtns.forEach(btn => btn.addEventListener("click", (e) => this.appendToDisplay(e.target.dataset.operation)))
+    this.numberBtns.forEach(btn => btn.addEventListener("click", (e) => this.appendToDisplay(e.target.dataset.value)))
   }
-  
-  setNumber(value){
 
-    if(this.calculationDone) this.reset();
-
-    if(!this.isFirstNumberSet){
-      this.firstNumber += value;
-    }else{
-      this.secondNumber += value;
-    }
-    this.appendToDisplay(value);
-  }
-  
-  setOperation(operation){
-    if(operation === "reset"){
+  appendToDisplay(input){
+    if(input === "reset") {
       this.reset();
       return;
     }
 
-    if(this.operation) return;
-    
-    this.operation = operation;
-    this.isFirstNumberSet = true;
-    switch (operation) {
-      case "add":
-        this.appendToDisplay("+");
-        break;
-      case "subtract":
-        this.appendToDisplay("-");
-        break;
-      case "multiply":
-        this.appendToDisplay("*");
-        break;
-      case "divide":
-        this.appendToDisplay("/");
-        break;
-    }
-  }
+    if(!this.isFirstNumberSet && !parseInt(input, 10)) return;
 
-  appendToDisplay(input){
+    this.isFirstNumberSet = true;
     const currentInput = this.display.textContent;
     this.display.textContent = `${currentInput}${input}`;
   }
 
-  calculateResult() {
-    this.calculationDone = true;
-
-    switch (this.operation) {
-      case "add":
-        return +this.firstNumber + +this.secondNumber
-      case "subtract":
-        return +this.firstNumber - +this.secondNumber
-      case "multiply":
-        return +this.firstNumber * +this.secondNumber
-      case "divide":
-        return +this.secondNumber === 0 ? "Invalid operation: divided by 0" : +this.firstNumber / +this.secondNumber
-      default:
-        return "Invalid operation"
-    }
-  }
-
   displayResult(){
-    // this.display.textContent = this.calculateResult();
-
+    this.display.textContent = eval(this.display.textContent);
   }
 
   reset(){
     console.log("Reseting");
-    this.firstNumber = 0;
-    this.secondNumber = 0;
     this.display.textContent = "";
     this.isFirstNumberSet = false;
     this.calculationDone = false;
-    this.operation = null;
   }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   new Calculator();
-  console.log("Hallo?");
 })
